@@ -1,0 +1,21 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Legal Rights Quiz</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Question {{ question_num }} of {{ total_questions }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>{{ question.question_text }}</p>
+        <label><input type="radio" name="answer" value="{{ question.option1 }}"> {{ question.option1 }}</label><br>
+        <label><input type="radio" name="answer" value="{{ question.option2 }}"> {{ question.option2 }}</label><br>
+        <label><input type="radio" name="answer" value="{{ question.option3 }}"> {{ question.option3 }}</label><br>
+        <label><input type="radio" name="answer" value="{{ question.option4 }}"> {{ question.option4 }}</label><br>
+        <button type="submit">Next</button>
+    </form>
+</body>
+</html>

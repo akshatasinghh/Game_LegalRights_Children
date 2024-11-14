@@ -1,0 +1,18 @@
+from django.core.management.base import BaseCommand
+from quiz.models import Question
+from quiz.data import default_questions
+
+class Command(BaseCommand):
+    help = "Load default questions"
+
+    def handle(self, *args, **kwargs):
+        for q in default_questions:
+            Question.objects.get_or_create(
+                question_text=q["question_text"],
+                option1=q["option1"],
+                option2=q["option2"],
+                option3=q["option3"],
+                option4=q["option4"],
+                correct_answer=q["correct_answer"],
+            )
+        self.stdout.write(self.style.SUCCESS("Questions loaded successfully."))

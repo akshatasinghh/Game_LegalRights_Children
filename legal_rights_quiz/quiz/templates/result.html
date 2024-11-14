@@ -1,0 +1,14 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>Quiz Completed!</h1>
+    <p>Your score: {{ score }} / {{ total_questions }}</p>
+    <a href="{% url 'quiz_view' %}">Try Again</a>
+</body>
+</html>
