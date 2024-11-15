@@ -9,6 +9,8 @@
 <body>
     <h1>Quiz Completed!</h1>
     <p>Your score: {{ score }} / {{ total_questions }}</p>
-    <a href="{% url 'quiz_view' %}">Try Again</a>
+    {% comment %} <a href="{% url 'quiz_view' %}">Try Again</a> {% endcomment %}
+    <a href="{% url 'retry_quiz' %}">Try Again</a>
+
 </body>
 </html>
